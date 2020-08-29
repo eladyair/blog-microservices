@@ -11,11 +11,12 @@ app.use(cors());
 
 const posts = {};
 
+// Basicly this route is no longer needed cause it exist in query microservice
 app.get("/posts", (req, res) => {
   res.send(posts);
 });
 
-app.post("/posts", async (req, res) => {
+app.post("/posts/create", async (req, res) => {
   const id = randomBytes(4).toString("hex");
 
   const { title } = req.body;
